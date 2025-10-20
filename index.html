@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Edit Mode Toggle -->
-    <button id="editModeToggle" class="edit-toggle">Edit Mode</button>
+    <!-- Edit Mode Toggle (Hidden by default) -->
+    <button id="editModeToggle" class="edit-toggle hidden">Edit Mode</button>
     
     <!-- CMS Controls (hidden by default) -->
     <div id="cmsControls" class="cms-controls hidden">
         <div class="cms-panel">
             <button id="saveChanges" class="btn btn--primary btn--sm">Save Changes</button>
             <button id="resetDefault" class="btn btn--secondary btn--sm">Reset to Default</button>
+            <button id="lockExit" class="btn btn--outline btn--sm">Lock &amp; Exit</button>
             <div class="color-controls">
                 <label for="primaryColor">Primary Color:</label>
                 <input type="color" id="primaryColor" value="#0066C0">
@@ -219,6 +220,7 @@
             </div>
             <div class="footer__bottom">
                 <p>&copy; 2025 <span class="editable" data-field="company.name">TrueBits Application Services</span>. All rights reserved.</p>
+                <a href="#" id="adminLink" class="admin-link">Admin</a>
             </div>
         </div>
     </footer>
