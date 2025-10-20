@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueBits Application Services - Innovative Software Solutions</title>
+    <meta name="description" content="Custom billing and business management software tailored for industries across Kolar District and beyond">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Edit Mode Toggle -->
+    <button id="editModeToggle" class="edit-toggle">Edit Mode</button>
+    
+    <!-- CMS Controls (hidden by default) -->
+    <div id="cmsControls" class="cms-controls hidden">
+        <div class="cms-panel">
+            <button id="saveChanges" class="btn btn--primary btn--sm">Save Changes</button>
+            <button id="resetDefault" class="btn btn--secondary btn--sm">Reset to Default</button>
+            <div class="color-controls">
+                <label for="primaryColor">Primary Color:</label>
+                <input type="color" id="primaryColor" value="#0066C0">
+                <label for="secondaryColor">Secondary Color:</label>
+                <input type="color" id="secondaryColor" value="#FF9900">
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <span class="nav__logo editable" data-field="company.name">TrueBits Application Services</span>
+            </div>
+            <div class="nav__menu" id="navMenu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#features" class="nav__link">Features</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <button class="nav__toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__container container">
+            <div class="hero__content">
+                <h1 class="hero__title editable" data-field="hero.headline">Empower Your Business with Innovative Software Solutions</h1>
+                <p class="hero__subtitle editable" data-field="hero.subheadline">Custom billing and business management software tailored for industries across Kolar District and beyond</p>
+                <div class="hero__buttons">
+                    <a href="#contact" class="btn btn--primary btn--lg editable" data-field="hero.cta_primary">Get Started</a>
+                    <a href="#services" class="btn btn--outline btn--lg editable" data-field="hero.cta_secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title editable" data-field="sections.services_title">Our Services</h2>
+                <p class="section__subtitle editable" data-field="sections.services_subtitle">Comprehensive software solutions for every business need</p>
+            </div>
+            <div class="services__grid" id="servicesGrid">
+                <!-- Services will be populated by JavaScript -->
+            </div>
+            <div class="cms-add-section hidden" id="servicesAddSection">
+                <button class="btn btn--secondary btn--sm" onclick="addServiceCard()">+ Add Service</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title editable" data-field="sections.features_title">Why Choose TrueBits?</h2>
+                <p class="section__subtitle editable" data-field="sections.features_subtitle">Excellence in software development and customer service</p>
+            </div>
+            <div class="features__grid" id="featuresGrid">
+                <!-- Features will be populated by JavaScript -->
+            </div>
+            <div class="cms-add-section hidden" id="featuresAddSection">
+                <button class="btn btn--secondary btn--sm" onclick="addFeatureCard()">+ Add Feature</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__content">
+                <div class="about__text">
+                    <h2 class="about__title editable" data-field="about.headline">About TrueBits Applications</h2>
+                    <p class="about__description editable" data-field="about.description">TrueBits Applications delivers powerful, user-friendly software for efficient business management. Based locally in Kolar District, we provide innovative billing and business management software solutions tailored for industries including medical, retail, fertilizers, and education sectors.</p>
+                    
+                    <div class="about__highlights">
+                        <div class="highlight-item">
+                            <h3 class="editable" data-field="pricing.note">One-time payment - No monthly or yearly charges</h3>
+                            <div class="price">
+                                <span class="price__amount editable" data-field="pricing.amount">₹16,500</span>
+                                <span class="price__period editable" data-field="pricing.period">Lifetime License</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <ul class="about__benefits" id="benefitsList">
+                        <!-- Benefits will be populated by JavaScript -->
+                    </ul>
+                </div>
+                <div class="about__visual">
+                    <div class="about__image">
+                        <div class="placeholder-image">📊 Software Dashboard</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section__header">
+                <h2 class="section__title editable" data-field="sections.contact_title">Get In Touch</h2>
+                <p class="section__subtitle editable" data-field="sections.contact_subtitle">Ready to transform your business? Contact us today</p>
+            </div>
+            <div class="contact__content">
+                <div class="contact__form">
+                    <form id="contactForm" class="form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                    </form>
+                    <div id="formMessage" class="form-message hidden"></div>
+                </div>
+                <div class="contact__info">
+                    <div class="contact__card">
+                        <h3>Contact Information</h3>
+                        <div class="contact__item">
+                            <strong>📍 Location:</strong>
+                            <span class="editable" data-field="company.location">Kolar District, Karnataka, India</span>
+                        </div>
+                        <div class="contact__item">
+                            <strong>📞 Phone:</strong>
+                            <span class="editable" data-field="company.phone">+91 9036301914</span>
+                        </div>
+                        <div class="contact__item">
+                            <strong>📧 Email:</strong>
+                            <span class="editable" data-field="company.email">truebitsapplicaations@gmail.com</span>
+                        </div>
+                        <div class="contact__item">
+                            <strong>🌐 Website:</strong>
+                            <span class="editable" data-field="company.website">truebitsapplicationsoftware.in</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3 class="editable" data-field="company.name">TrueBits Application Services</h3>
+                    <p class="editable" data-field="company.tagline">Innovative Software Solutions for Your Business</p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#about">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Billing Software</a></li>
+                            <li><a href="#services">Medical Solutions</a></li>
+                            <li><a href="#services">Educational Management</a></li>
+                            <li><a href="#services">Custom Development</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li class="editable" data-field="company.location">Kolar District, Karnataka</li>
+                            <li class="editable" data-field="company.phone">+91 9036301914</li>
+                            <li class="editable" data-field="company.email">truebitsapplicaations@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 <span class="editable" data-field="company.name">TrueBits Application Services</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
